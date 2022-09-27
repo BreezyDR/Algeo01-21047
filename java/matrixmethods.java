@@ -82,4 +82,19 @@ public class matrixmethods {
         }
         return mresult;
     }
+
+    protected static boolean isZero(double x) {
+        double ketelitian = 1.0e-12;
+        return ((x < ketelitian) && (x > -ketelitian));
+    }
+
+    protected static boolean isRowElmtZero(double[] row) {
+        int i;
+        for (i = 0; i < row.length; i++) {
+            if (!isZero(row[i])) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
