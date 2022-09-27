@@ -71,34 +71,61 @@ public class matrixmethods {
 
     protected static double[][] multiplyMatrix(double[][] matrix1, double[][] matrix2) {
         double[][] mresult = new double[matrix1.length][matrix2[0].length];
-        int i, j, k;
+        int i, j, k, tempadd;
         for (i = 0; i < mresult.length; i++) {
             for (j = 0; j < mresult[0].length; j++) {
-                mresult[i][j] = 0;
+                tempadd = 0;
                 for (k = 0; k < matrix1[0].length; k++) {
-                    mresult[i][j] += matrix1[i][k] * matrix2[k][j];
+                    tempadd += matrix1[i][k] * matrix2[k][j];
                 }
+                mresult[i][j] = tempadd;
             }
         }
         return mresult;
     }
 
     protected static boolean isZero(double x) {
-        double ketelitian = 1.0e-12;
-        return ((x < ketelitian) && (x > -ketelitian));
-
-        
+        double ketelitian = 1.0e-10;
+        return ((x < ketelitian) && (x > -ketelitian));        
     }
 
     protected static boolean isRowElmtZero(double[] row) {
         int i;
+        boolean state = true;
         for (i = 0; i < row.length; i++) {
             if (!isZero(row[i])) {
-                return false;
+                state = false;
             }
         }
+        return state;
+    }
 
+    protected static boolean doesMatrixHaveNoSolution(double[][] matrix) {
+        boolean state = true;
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length - 1; j++) {
+                if (!isZero(matrix[i][j])) {
+                    state = false;
+                }
+            }
+            if (isZero(matrix[i][matrix[0].length - 1])) {
+                state = false;
+            } else {
+                state = true;
+                break;
+            }
+        }
+        return state;
+    }
 
-        return true;
+    protected static double[][] cutAugmentedToSquare(double[][] matrix) {
+        int i, j;
+        double[][] mresult = new double[matrix.length][matrix.length];
+        for (i = 0; i < matrix.length; i++) {
+            for (j = 0; j < matrix.length; j++) {
+                mresult[i][j] = matrix[i][j];
+            }
+        }
+        return mresult;
     }
 }
