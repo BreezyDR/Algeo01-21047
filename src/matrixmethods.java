@@ -1,7 +1,8 @@
 import java.io.*;
 import java.util.*;
-
 import javax.lang.model.element.Element;
+import java.util.Arrays;
+import java.lang.Math;
 
 public class matrixmethods {
     static Scanner scanner = new Scanner(System.in);
