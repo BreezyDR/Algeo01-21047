@@ -1,6 +1,8 @@
 import java.io.*;
 import java.util.*;
 
+import javax.lang.model.element.Element;
+
 public class matrixmethods {
     static Scanner scanner = new Scanner(System.in);
 
@@ -127,5 +129,30 @@ public class matrixmethods {
             }
         }
         return mresult;
+    }
+
+    protected static double determinan(double[][] matrix) {
+        int i, j, k;
+        double[][] kofaktor = new double[matrix.length - 1][matrix[0].length - 1];
+        double det = 0;
+        int posneg = 1;
+        if (matrix.length == 1) {
+            det = matrix[0][0];
+        } else {
+            for (i = 0; i < matrix.length; i++) {
+                for (j = 1; j < matrix.length; j++) {
+                    for (k = 0; k < matrix[0].length; k++) {
+                        if (k < i) {
+                            kofaktor[j-1][k] = matrix[j][k];
+                        } else if (i < k) {
+                            kofaktor[j-1][k-1] = matrix[j][k];
+                        }
+                    }
+                }
+            }
+            det += posneg * matrix[0][i] * determinan(kofaktor);
+            posneg = -posneg;
+        }
+        return det;
     }
 }
