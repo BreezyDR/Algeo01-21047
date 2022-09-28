@@ -156,4 +156,9 @@ public class matrixmethods {
         }
         return det;
     }
+
+    protected double getElmtDiagonal (double[][] matrix, int i) {
+        /* Mengirimkan elemen m(i,i) */
+        return (matrix[i][i]);
+    }
 }
