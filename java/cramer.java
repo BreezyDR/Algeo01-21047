@@ -23,7 +23,7 @@ public class cramer extends matrixmethods {
                 }
             }
             double x = matrixmethods.determinan(Abaru) / matrixmethods.determinan(A);
-            message[koefisien] = "Nilai X" + (koefisien + 1) + "adalah: " + x;
+            message[koefisien] = "Nilai X" + (koefisien + 1) + " adalah: " + x;
         }
         return message;
     }
