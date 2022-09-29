@@ -1,16 +1,16 @@
 public class EkspansiKofaktor extends matrixmethods {
     protected double[][] makeNewMatrix (double[][] matrix, int i, int j) {
         /* Membuat matriks baru tanpa elemen pada baris i dan kolom j */
-        int rows = matrix.length;
-        int cols = matrix[0].length;
+        int rows = matrix.length-1;
+        int cols = matrix[0].length-1;
         double[][] mn = new double[rows][cols];
         int k, l;
         int a = 0;
-        int b = 0;
+        int b;
 
-        for (k = 0; k < rows; k++) {
+        for (k = 0; k < rows+1; k++) {
             b = 0;
-            for (l = 0; l < cols; l++) {
+            for (l = 0; l < cols+1; l++) {
                 if (k != i && l != j) {
                     mn[a][b] = matrix[k][l];
                     b += 1;
