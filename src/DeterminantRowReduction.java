@@ -1,4 +1,4 @@
-public class detReduksi extends matrixmethods {
+public class DeterminantRowReduction extends matrixmethods {
     protected void min2barismatrix (double[][] matrix, int Row1, int Row2, double n) {
         /* I.S. m terdefinisi dan memiliki jumlah baris minimal 2 */
         /* F.S. ROw1 pada matriks m telah dikurangi n*Row 2 */

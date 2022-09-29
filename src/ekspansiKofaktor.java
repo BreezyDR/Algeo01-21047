@@ -1,4 +1,4 @@
-public class ekspansiKofaktor extends matrixmethods {
+public class EkspansiKofaktor extends matrixmethods {
     protected double[][] makeNewMatrix (double[][] matrix, int i, int j) {
         /* Membuat matriks baru tanpa elemen pada baris i dan kolom j */
         int rows = matrix.length;
