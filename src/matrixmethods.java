@@ -1,7 +1,8 @@
 import java.io.*;
 import java.util.*;
-
 import javax.lang.model.element.Element;
+import java.util.Arrays;
+import java.lang.Math;
 
 public class matrixmethods {
 
@@ -153,5 +154,10 @@ public class matrixmethods {
             posneg = -posneg;
         }
         return det;
+    }
+
+    protected double getElmtDiagonal (double[][] matrix, int i) {
+        /* Mengirimkan elemen m(i,i) */
+        return (matrix[i][i]);
     }
 }
