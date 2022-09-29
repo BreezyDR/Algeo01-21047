@@ -4,7 +4,6 @@ import java.util.*;
 import javax.lang.model.element.Element;
 
 public class matrixmethods {
-    static Scanner scanner = new Scanner(System.in);
 
     protected static void print(String str) {
         // Menulis str tanpa newline
