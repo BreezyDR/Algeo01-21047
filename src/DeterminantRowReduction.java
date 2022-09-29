@@ -8,7 +8,7 @@ public class DeterminantRowReduction extends matrixmethods {
         }
     }
 
-    public double determinant(double[][] matrix) {
+    public double detRowReduction(double[][] matrix) {
         /* Prekondisi: isSquare(m) */
         /* Menghitung nilai determinan m */
         int rows = matrix.length;
