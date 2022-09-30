@@ -25,16 +25,18 @@ public class EkspansiKofaktor extends matrixmethods {
 
     public double detKofaktor (double[][] matrix) {
         /* Prekondisi: isSquare(m) */
-        /* Menghitung nilai determinan m */
+        /* Menghitung nilai determinan m menggunakan ekspansi kofaktor */
         int rows = matrix.length;
         int cols = matrix[0].length;
         int i = 0;
         int j;
         double det = 0;
 
+        // Basis
         if (rows == 2 && cols == 2) {
             det = getElmtDiagonal(matrix,0)*getElmtDiagonal(matrix,1) - matrix[0][1]*matrix[1][0];
         }
+        // Rekurens
         else {
             for (j = 0; j < cols; j++) {
                 det += matrix[i][j] * Math.pow((-1),(i+j)) * detKofaktor(makeNewMatrix(matrix,i,j));

@@ -10,12 +10,14 @@ public class Inverse extends EkspansiKofaktor {
         double det = detKofaktor(matrix);
         double[][] matrixInverse = new double[rows][cols];
 
+        // Inverse matriks 2x2
         if (rows == 2 && cols == 2) {
             matrixInverse[0][0] = matrix[1][1];
             matrixInverse[1][1] = matrix[0][0];
             matrixInverse[0][1] = -matrix[0][1];
             matrixInverse[1][0] = -matrix[1][0];
         }
+        // Inverse matriks ukuran lebih dari 2x2
         else {
             for (int i = 0; i < rows; i++) {
                 for (int j = 0; j < cols; j++) {

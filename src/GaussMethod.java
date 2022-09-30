@@ -1,12 +1,14 @@
 public class GaussMethod extends matrixmethods {
     public void gauss(double[][] matrix) {
         int rows = matrix.length;
+        int i, j;
         int k = 0;
         double x, y;
         double n;
 
-        for (int j = 0; j < rows; j++) {
-            for (int i = k+1; i < rows; i++) {
+        // Menukar baris pada matriks
+        for (j = 0; j < rows; j++) {
+            for (i = k+1; i < rows; i++) {
                 if ((matrix[k][j] == 0) && (matrix[i][j]) != 0) {
                     switchRow(matrix,k,i);
                 }
@@ -15,17 +17,19 @@ public class GaussMethod extends matrixmethods {
         }
         k = 0;
 
-        for (int j = 0; j < rows; j++) {
+        // OBE untuk Metode Gauss
+        while (k < rows) {
             if (searchNonZero(matrix,k) != 0) {
+                j = searchIndex(matrix,k,searchNonZero(matrix,k));
                 multiplyRow(matrix, k, 1 / searchNonZero(matrix,k));
-                for (int i = k + 1; i < rows; i++) {
+                for (i = k+1; i < rows; i++) {
                     x = matrix[i][j];
                     y = matrix[k][j];
                     n = x / y;
                     min2barismatrix(matrix, i, k, n);
                 }
-                k += 1;
             }
+            k += 1;
         }
     }
 }

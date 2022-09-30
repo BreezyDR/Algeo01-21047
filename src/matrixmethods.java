@@ -203,4 +203,20 @@ public class matrixmethods {
             matrix[row2][j] = temp;
         }
     }
+
+    protected int searchIndex (double[][] matriks, int row, double n) {
+        /* Mencari index kolom dari elemen n pada row */
+        boolean found = false;
+        int j = 0;
+        int index = 0;
+
+        while ((!found) && (j < matriks[0].length)) {
+            if (matriks[row][j] == n) {
+                found = true;
+                index = j;
+            }
+            j++;
+        }
+        return index;
+    }
 }
