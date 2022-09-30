@@ -160,4 +160,47 @@ public class matrixmethods {
         /* Mengirimkan elemen m(i,i) */
         return (matrix[i][i]);
     }
+
+    protected void min2barismatrix (double[][] matrix, int Row1, int Row2, double n) {
+        /* I.S. m terdefinisi dan memiliki jumlah baris minimal 2 */
+        /* F.S. ROw1 pada matriks m telah dikurangi n*Row 2 */
+        int i;
+        for (i = 0; i < matrix[0].length; i++) {
+            matrix[Row1][i] = matrix[Row1][i] - n*matrix[Row2][i];
+        }
+    }
+
+    protected double searchNonZero (double[][] matrix, int row) {
+        /* Mengembalikan elemen bukan 0 pertama di row, jika tidak ada maka mengembalikan 0; */
+        double val = matrix[row][0];
+        boolean found = false;
+        int j = 0;
+
+        while ((j < matrix[0].length) && (!found)) {
+            if (matrix[row][j] != 0) {
+                val = matrix[row][j];
+                found = true;
+            }
+            j++;
+        }
+        return val;
+    }
+
+    protected void multiplyRow (double[][] matrix, int i, double n) {
+        /* Mengalikan baris i dengan konstanta n */
+        for (int j = 0; j < matrix[0].length; j++) {
+            matrix[i][j] = matrix[i][j]*n;
+        }
+    }
+
+    protected void switchRow (double[][] matrix, int row1, int row2) {
+        /* Menukar row1 dengan row2 */
+        double temp;
+
+        for (int j = 0; j < matrix[0].length; j++) {
+            temp = matrix[row1][j];
+            matrix[row1][j] = matrix[row2][j];
+            matrix[row2][j] = temp;
+        }
+    }
 }
