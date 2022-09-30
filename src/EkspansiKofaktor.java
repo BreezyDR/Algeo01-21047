@@ -1,5 +1,5 @@
 public class EkspansiKofaktor extends matrixmethods {
-    protected double[][] makeNewMatrix (double[][] matrix, int i, int j) {
+    protected static double[][] makeNewMatrix (double[][] matrix, int i, int j) {
         /* Membuat matriks baru tanpa elemen pada baris i dan kolom j */
         int rows = matrix.length-1;
         int cols = matrix[0].length-1;
@@ -23,7 +23,7 @@ public class EkspansiKofaktor extends matrixmethods {
         return mn;
     }
 
-    public double detKofaktor (double[][] matrix) {
+    public static double detKofaktor (double[][] matrix) {
         /* Prekondisi: isSquare(m) */
         /* Menghitung nilai determinan m menggunakan ekspansi kofaktor */
         int rows = matrix.length;

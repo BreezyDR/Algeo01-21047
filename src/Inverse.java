@@ -1,10 +1,9 @@
 public class Inverse extends EkspansiKofaktor {
-    protected double getKofaktor (double[][] matrix, int i, int j) {
-        double kof = Math.pow((-1),(i+j)) * detKofaktor(makeNewMatrix(matrix,i,j));
-        return kof;
+    protected static double getKofaktor (double[][] matrix, int i, int j) {
+        return Math.pow((-1),(i+j)) * detKofaktor(makeNewMatrix(matrix,i,j));
     }
 
-    public double[][] inverse (double[][] matrix) {
+    public static double[][] inverse (double[][] matrix) {
         int rows = matrix.length;
         int cols = matrix[0].length;
         double det = detKofaktor(matrix);

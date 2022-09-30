@@ -1,5 +1,5 @@
 public class GaussJordanMethod extends matrixmethods {
-    public void gaussJordan(double[][] matrix) {
+    public static void gaussJordan(double[][] matrix) {
         int rows = matrix.length;
         int i, j;
         int k;
@@ -7,8 +7,7 @@ public class GaussJordanMethod extends matrixmethods {
         double n;
 
         // Fase maju (forward phase) atau fase eliminasi gauss
-        GaussMethod faseMaju = new GaussMethod();
-        faseMaju.gauss(matrix);
+        GaussMethod.gauss(matrix);
 
         // Fase mundur (backward phase)
         for (i = 0; i < rows - 1; i++) {
