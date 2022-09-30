@@ -6,7 +6,7 @@ public class menu extends matrixmethods {
     
     static Scanner scanner = new Scanner(System.in);
 
-    protected static int pilihanMenu(int i, int j) {
+    public static int pilihanMenu(int i, int j) {
         int input = 0;
         printlnstr("Ketikkan angka antara " + i + " dan " + j);
         boolean terusinput = true;
@@ -21,7 +21,7 @@ public class menu extends matrixmethods {
         return input;
     }
 
-    private static double[][] inputKeyboard(boolean harusSquare) {
+    public static double[][] inputKeyboard(boolean harusSquare) {
         double[][] matrix;
         int row = 0;
         int col = 0;
