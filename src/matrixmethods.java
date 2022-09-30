@@ -6,31 +6,31 @@ import java.lang.Math;
 
 public class matrixmethods {
 
-    protected static void print(String str) {
+    public static void print(String str) {
         // Menulis str tanpa newline
         System.out.print(str);
     } 
-    protected static void println() {
+    public static void println() {
         // Menulis new line
         System.out.println();
     }
     
-    protected static void printlnstr(String str) {
+    public static void printlnstr(String str) {
         // Menulis str dengan newline
         System.out.println(str);
     }
     
-    protected static void printlndou(double dou) {
+    public static void printlndou(double dou) {
         // Menulis str bertipe double denangan new line
         System.out.println(dou);
     }
     
-    protected static void printf(String str, Object... args) {
+    public static void printf(String str, Object... args) {
         // Menulis str dengan beberapa format argumen
         System.out.printf(str, args);
     }
 
-    protected static void displayMatrix(double[][] matrix) {
+    public static void displayMatrix(double[][] matrix) {
         int i, j;
         int rows = matrix.length;
         for (i = 0; i < rows; i++) {
@@ -41,11 +41,11 @@ public class matrixmethods {
         }
     }
 
-    protected static boolean isSquare(double[][] matrix) {
+    public static boolean isSquare(double[][] matrix) {
         return (matrix.length == matrix[0].length);
     }
 
-    protected static double[][] transpose(double[][] matrix) {
+    public static double[][] transpose(double[][] matrix) {
         int i, j;
         int rows = matrix.length;
         int cols = matrix[0].length;
@@ -58,7 +58,7 @@ public class matrixmethods {
         return mresult;
     }
 
-    protected static double[][] multiplyByConst(double[][] matrix, double x) {
+    public static double[][] multiplyByConst(double[][] matrix, double x) {
         int i, j;
         int rows = matrix.length;
         int cols = matrix[0].length;
@@ -71,7 +71,7 @@ public class matrixmethods {
         return mresult;
     }
 
-    protected static double[][] multiplyMatrix(double[][] matrix1, double[][] matrix2) {
+    public static double[][] multiplyMatrix(double[][] matrix1, double[][] matrix2) {
         double[][] mresult = new double[matrix1.length][matrix2[0].length];
         int i, j, k, tempadd;
         for (i = 0; i < mresult.length; i++) {
@@ -86,12 +86,12 @@ public class matrixmethods {
         return mresult;
     }
 
-    protected static boolean isZero(double x) {
+    public static boolean isZero(double x) {
         double ketelitian = 1.0e-10;
         return ((x < ketelitian) && (x > -ketelitian));        
     }
 
-    protected static boolean isRowElmtZero(double[] row) {
+    public static boolean isRowElmtZero(double[] row) {
         int i;
         boolean state = true;
         for (i = 0; i < row.length; i++) {
@@ -102,7 +102,7 @@ public class matrixmethods {
         return state;
     }
 
-    protected static boolean doesMatrixHaveNoSolution(double[][] matrix) {
+    public static boolean doesMatrixHaveNoSolution(double[][] matrix) {
         boolean state = true;
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[0].length - 1; j++) {
@@ -120,7 +120,7 @@ public class matrixmethods {
         return state;
     }
 
-    protected static double[][] cutAugmentedToSquare(double[][] matrix) {
+    public static double[][] cutAugmentedToSquare(double[][] matrix) {
         int i, j;
         double[][] mresult = new double[matrix.length][matrix.length];
         for (i = 0; i < matrix.length; i++) {
@@ -131,7 +131,7 @@ public class matrixmethods {
         return mresult;
     }
 
-    protected static double determinan(double[][] matrix) {
+    public static double determinan(double[][] matrix) {
         int i, j, k;
         double[][] kofaktor = new double[matrix.length - 1][matrix[0].length - 1];
         double det = 0;
@@ -156,12 +156,12 @@ public class matrixmethods {
         return det;
     }
 
-    protected double getElmtDiagonal (double[][] matrix, int i) {
+    public double getElmtDiagonal (double[][] matrix, int i) {
         /* Mengirimkan elemen m(i,i) */
         return (matrix[i][i]);
     }
 
-    protected void min2barismatrix (double[][] matrix, int Row1, int Row2, double n) {
+    public void min2barismatrix (double[][] matrix, int Row1, int Row2, double n) {
         /* I.S. m terdefinisi dan memiliki jumlah baris minimal 2 */
         /* F.S. ROw1 pada matriks m telah dikurangi n*Row 2 */
         int i;
@@ -170,7 +170,7 @@ public class matrixmethods {
         }
     }
 
-    protected double searchNonZero (double[][] matrix, int row) {
+    public double searchNonZero (double[][] matrix, int row) {
         /* Mengembalikan elemen bukan 0 pertama di row, jika tidak ada maka mengembalikan 0; */
         double val = matrix[row][0];
         boolean found = false;
@@ -186,14 +186,14 @@ public class matrixmethods {
         return val;
     }
 
-    protected void multiplyRow (double[][] matrix, int i, double n) {
+    public void multiplyRow (double[][] matrix, int i, double n) {
         /* Mengalikan baris i dengan konstanta n */
         for (int j = 0; j < matrix[0].length; j++) {
             matrix[i][j] = matrix[i][j]*n;
         }
     }
 
-    protected void switchRow (double[][] matrix, int row1, int row2) {
+    public void switchRow (double[][] matrix, int row1, int row2) {
         /* Menukar row1 dengan row2 */
         double temp;
 
