@@ -56,4 +56,22 @@ public class menu extends matrixmethods {
         }
         return matrix;
     }
+
+    public static String inputFilename(Scanner scanner) {
+        boolean isValidFile = false;
+        String fileName = null;
+        while (!isValidFile) {
+            try {
+                printlnstr("Masukkan file path dokumen yang akan dibaca:");
+                fileName = scanner.nextLine();
+                Scanner file = new Scanner(new File(fileName));
+                isValidFile = true;
+            } catch (FileNotFoundException e) {
+                // TODO: handle exception
+                printlnstr("File tidak dapat ditemukan! Silakan coba lagi.");
+                isValidFile = false;
+            }
+        }
+        return fileName;
+    }
 }
