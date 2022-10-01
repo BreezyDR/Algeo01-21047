@@ -156,6 +156,29 @@ public class matrixmethods {
         return det;
     }
 
+    public static double[][] cutRowAllZero(double[][] matrix) {
+        int rowallzero = 0;
+        for (int i = 0; i < matrix.length; i++) {
+            if (isRowElmtZero(matrix[i])) {
+                rowallzero++;
+            }
+        }
+        if (rowallzero == 0) {
+            return matrix;
+        } else {
+            int newrow = matrix.length - rowallzero;
+            int newcol = matrix[0].length;
+            double[][] newmatrix = new double [newrow][newcol];
+            
+            for (int i = 0; i < newrow; i++) {
+                for (int j = 0; j < newcol; j++) {
+                    newmatrix[i][j] = matrix[i][j];
+                }
+            }
+            return newmatrix;
+        }
+    }
+
     public static double getElmtDiagonal (double[][] matrix, int i) {
         /* Mengirimkan elemen m(i,i) */
         return (matrix[i][i]);
@@ -229,5 +252,23 @@ public class matrixmethods {
                 newMatrix[i][j] = input.nextInt();
             }
         }
+    }
+
+    public static double[][] increaseMatrix(double[][] matrix1, double[][] matrix2) {
+        int rows1 = matrix1.length;
+        int cols1 = matrix1[0].length;
+        int cols2 = matrix2[0].length;
+
+        double[][] hasilmatrix = new double[rows1][cols1+cols2];
+        for (int i= 0; i < hasilmatrix.length; i++) {
+            for (int j = 0; j < hasilmatrix[0].length; j++) {
+                if (j < cols1) {
+                    hasilmatrix[i][j] = matrix1[i][j];
+                } else {
+                    hasilmatrix[i][j] = matrix2[i][j-cols1];
+                }
+            }
+        }
+        return hasilmatrix;
     }
 }

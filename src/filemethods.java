@@ -139,5 +139,31 @@ public class filemethods extends matrixmethods {
             printlnstr("Something went wrong. Try again");
             return false;
         }
-    }    
+    }
+    
+    public static boolean writeRegresikeFile(String directory, double[] hasilregresi, double taksiran) {
+        try {
+            FileWriter writer = new FileWriter(directory);
+            writer.write("Persamaan regresi linear berganda adalah: ");
+            writer.write(Double.toString(hasilregresi[0]));
+            for (int i = 1; i < hasilregresi.length; i++) {
+                if (hasilregresi[i] > 0) {
+                    writer.write(" + ");
+                }
+                writer.write(Double.toString(hasilregresi[i]));
+                writer.write("x");
+                writer.write(Integer.toString(i));
+            }
+            writer.write("\nJadi nilai taksirannya: ");
+            writer.write(Double.toString(taksiran));
+            writer.write("\n");
+            writer.close();
+            printlnstr("Hasil sudah dituliskan kepada file.");
+            return true;
+        } catch (Exception e) {
+            // TODO: handle exception
+            printlnstr("Something went wrong. Try again");
+            return false;
+        }
+    }
 }
