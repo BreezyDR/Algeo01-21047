@@ -57,7 +57,7 @@ public class menu extends matrixmethods {
         return matrix;
     }
 
-    public static String inputFilename(Scanner scanner) {
+    public static String inputFilename() {
         boolean isValidFile = false;
         String fileName = null;
         while (!isValidFile) {
@@ -73,5 +73,25 @@ public class menu extends matrixmethods {
             }
         }
         return fileName;
+    }
+
+    public static double[][] matrixFile(boolean harusSquare) {
+        int[] rowandcol = new int[2];
+        String file = "";
+        double[][] matrix;
+        boolean terusinput = true;
+
+        while (terusinput) {
+            file = "../test/" + inputFilename();
+            rowandcol = filemethods.banyakRowandCol(file);
+            if (harusSquare && (rowandcol[0] != rowandcol[1])) {
+                printlnstr("Matriks di file tidak berbentuk persegi!");
+            } else {
+                terusinput = false;
+            }
+        }
+        matrix = filemethods.readMatrixFile(rowandcol[0], rowandcol[1], file);
+
+        return matrix;
     }
 }
