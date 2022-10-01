@@ -160,7 +160,7 @@ public class filemethods extends matrixmethods {
             writer.close();
             printlnstr("Hasil sudah dituliskan kepada file.");
             return true;
-        } catch (Exception e) {
+        } catch (IOException e) {
             // TODO: handle exception
             printlnstr("Something went wrong. Try again");
             return false;

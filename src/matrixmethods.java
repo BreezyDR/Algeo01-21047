@@ -102,6 +102,16 @@ public class matrixmethods {
         return state;
     }
 
+    public static boolean isColElmtZero(double[][] matrix, int col) {
+        boolean state = true;
+        for (int i = 0; i < matrix.length; i++) {
+            if (!isZero(matrix[i][col])) {
+                state = false;
+            }
+        }
+        return state;
+    }
+
     public static boolean doesMatrixHaveNoSolution(double[][] matrix) {
         boolean state = true;
         for (int i = 0; i < matrix.length; i++) {
