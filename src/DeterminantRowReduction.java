@@ -1,5 +1,5 @@
 public class DeterminantRowReduction extends matrixmethods {
-    public double detRowReduction(double[][] matrix) {
+    public static double detRowReduction(double[][] matrix) {
         /* Prekondisi: isSquare(m) */
         /* Menghitung nilai determinan m menggunakan metode reduksi baris */
         int rows = matrix.length;
@@ -36,8 +36,9 @@ public class DeterminantRowReduction extends matrixmethods {
 
         // Mengalikan diagonal matriks untuk mencari determinan
         for (i = 0; i < rows; i++) {
-            det = Math.pow(-1,p) * det * getElmtDiagonal(matrix,i);
+            det = det * getElmtDiagonal(matrix,i);
         }
+        det = det * Math.pow(-1,p);
         return (det);
     }
 }

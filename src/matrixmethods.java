@@ -156,12 +156,12 @@ public class matrixmethods {
         return det;
     }
 
-    public double getElmtDiagonal (double[][] matrix, int i) {
+    public static double getElmtDiagonal (double[][] matrix, int i) {
         /* Mengirimkan elemen m(i,i) */
         return (matrix[i][i]);
     }
 
-    public void min2barismatrix (double[][] matrix, int Row1, int Row2, double n) {
+    public static void min2barismatrix (double[][] matrix, int Row1, int Row2, double n) {
         /* I.S. m terdefinisi dan memiliki jumlah baris minimal 2 */
         /* F.S. ROw1 pada matriks m telah dikurangi n*Row 2 */
         int i;
@@ -170,7 +170,7 @@ public class matrixmethods {
         }
     }
 
-    public double searchNonZero (double[][] matrix, int row) {
+    public static double searchNonZero (double[][] matrix, int row) {
         /* Mengembalikan elemen bukan 0 pertama di row, jika tidak ada maka mengembalikan 0; */
         double val = matrix[row][0];
         boolean found = false;
@@ -186,14 +186,14 @@ public class matrixmethods {
         return val;
     }
 
-    public void multiplyRow (double[][] matrix, int i, double n) {
+    public static void multiplyRow (double[][] matrix, int i, double n) {
         /* Mengalikan baris i dengan konstanta n */
         for (int j = 0; j < matrix[0].length; j++) {
             matrix[i][j] = matrix[i][j]*n;
         }
     }
 
-    public void switchRow (double[][] matrix, int row1, int row2) {
+    public static void switchRow (double[][] matrix, int row1, int row2) {
         /* Menukar row1 dengan row2 */
         double temp;
 
@@ -204,7 +204,7 @@ public class matrixmethods {
         }
     }
 
-    protected int searchIndex (double[][] matriks, int row, double n) {
+    protected static int searchIndex (double[][] matriks, int row, double n) {
         /* Mencari index kolom dari elemen n pada row */
         boolean found = false;
         int j = 0;
@@ -218,5 +218,16 @@ public class matrixmethods {
             j++;
         }
         return index;
+    }
+
+    public static void createMatrix (double[][] newMatrix, int m, int n) {
+        /* Membuat matrix baru dengan ukuran baris = m dan kolom = n */
+        Scanner input = new Scanner(System.in);
+
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                newMatrix[i][j] = input.nextInt();
+            }
+        }
     }
 }

@@ -1,5 +1,5 @@
 public class GaussMethod extends matrixmethods {
-    public void gauss(double[][] matrix) {
+    public static void gauss(double[][] matrix) {
         int rows = matrix.length;
         int i, j;
         int k = 0;
