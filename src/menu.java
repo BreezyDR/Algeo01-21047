@@ -94,4 +94,18 @@ public class menu extends matrixmethods {
 
         return matrix;
     }
+
+    public static double[][] inputDanBuatMatrix(boolean harusSquare) {
+        double[][] matrix;
+        printlnstr("Menu Input Data Matriks");
+        printlnstr("1. Input Keyboard");
+        printlnstr("2. Input File");
+        int pilihan = pilihanMenu(1, 2);
+        if (pilihan == 1) {
+            matrix = inputKeyboard(harusSquare);
+        } else {
+            matrix = matrixFile(harusSquare);
+        }
+        return matrix;
+    }
 }
