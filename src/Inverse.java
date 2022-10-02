@@ -28,4 +28,34 @@ public class Inverse extends EkspansiKofaktor {
         matrixInverse = multiplyByConst(matrixInverse,1/det);
         return matrixInverse;
     }
+
+    public static double[][] inverseGaussJordan(double[][] matrix) {
+        int row = matrix.length;
+        int col = matrix[0].length;
+        double[][] temp = new double[row][2*col];
+
+        for (int i=0; i < temp.length; i++) {
+            for (int j=0; j < temp[0].length; j++) {
+                if (j < col) {
+                    temp[i][j] = matrix[i][j];
+                } else {
+                    if ((j - col) == i) {
+                        temp[i][j] = 1;
+                    } else {
+                        temp[i][j] = 0;
+                    }
+                }
+            }
+        }
+        GaussJordanMethod.gaussJordan(temp);
+        double[][] matrixGaussJordan = copyMatrix(temp);
+        double[][] hasilInverse = new double[row][col];
+
+        for (int i=0; i < hasilInverse.length; i++) {
+            for (int j=0; j < hasilInverse[i].length; j++) {
+                hasilInverse[i][j] = matrixGaussJordan[i][j+col];
+            }
+        }
+        return hasilInverse;
+    }
 }

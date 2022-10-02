@@ -135,7 +135,7 @@ public class main extends menu {
                     } else {
                         double[][] matrixInvers = new double[matrix.length][matrix[0].length];
                         if (pilihan == 1) {
-                            
+                            matrixInvers = Inverse.inverseGaussJordan(matrix);
                         } else {
                             matrixInvers = Inverse.inverseCofactor(matrix);
                         }
