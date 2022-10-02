@@ -157,7 +157,25 @@ public class main extends menu {
                     }
                     break;  
                 case 4: // Interpolasi polinom
-
+                    harusSquare = false;
+                    matrix = inputDanBuatMatrix(harusSquare);
+                    double[] solusiInterpolasi = InterpolasiPolinom.polynomialInterpolation(matrix);
+                    print("Masukkan nilai yang akan ditaksir: ");
+                    double nilai = scanner.nextDouble();
+                    double estimasi = InterpolasiPolinom.estimateFunction(solusiInterpolasi, nilai);
+                    printf("Nilai taksiran fungsi saat x = %f adalah ", nilai);
+                    printlndou(estimasi);
+                    printlnstr("Apakah Anda ingin menulis hasil ke dalam file?");
+                    printlnstr("1. Ya");
+                    printlnstr("2. Tidak");
+                    pilihan = pilihanMenu(1, 2);
+                    if (pilihan == 1) {
+                        while (!selesai) {
+                            printlnstr("Masukkan directory file yang ingin dituliskan hasilnya:");
+                            String directory = scanner.next();
+                            selesai = filemethods.writeInterpolasikeFile("../test/" + directory, solusiInterpolasi, nilai, estimasi);
+                        }
+                    }
                     break;    
                 case 5: // Interpolasi Bicubic
 
@@ -183,12 +201,10 @@ public class main extends menu {
                     } else {
                         double[][] dariFile = matrixFile(false);
                         matrix = new double[dariFile.length][dariFile[0].length - 1];
-                        double[] y = new double[dariFile.length];
                         for (int i=0; i < matrix.length; i++) {
                             for (int j=0; j < matrix[i].length; j++) {
                                 matrix[i][j] = dariFile[i][j];
                             }
-                            y[i] = dariFile[i][dariFile[0].length - 1];
                         }
                     }
 

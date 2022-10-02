@@ -183,4 +183,40 @@ public class filemethods extends matrixmethods {
             return false;
         }
     }
+
+    public static boolean writeInterpolasikeFile(String directory, double[] solusiInterpolasi, double nilai, double estimasi) {
+        try {
+            FileWriter writer = new FileWriter(directory);
+            writer.write("Persamaan polinom\ny = ");
+            boolean pertama = true;
+            for (int i=solusiInterpolasi.length-1; i >= 0; i--) {
+                if (!isZero(solusiInterpolasi[i])) {
+                    if (solusiInterpolasi[i] > 0 && pertama) {
+                        pertama = false;
+                    } else if (solusiInterpolasi[i] > 0 && !pertama) {
+                        writer.write(" +");
+                    }
+                    writer.write(" ");
+                    writer.write(Double.toString(solusiInterpolasi[i]));
+                    if (i != 0) {
+                        writer.write(" x^");
+                        writer.write(Integer.toString(i));
+                    }
+                }
+            }
+            writer.write("\n");
+            writer.write("Taksiran fungsi dari ");
+            writer.write(Double.toString(nilai));
+            writer.write(" adalah ");
+            writer.write(Double.toString(estimasi));
+            writer.write("\n");
+            writer.close();
+            printlnstr("Hasil sudah dituliskan kepada file.");
+            return true;
+        } catch (Exception e) {
+            // TODO: handle exception
+            printlnstr("Something went wrong. Try again");
+            return false;
+        }
+    }
 }
