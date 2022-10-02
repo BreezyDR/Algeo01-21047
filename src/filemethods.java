@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 public class filemethods extends matrixmethods {
     public static double[][] readMatrixFile(int row, int col, String file) {
+        // Mengembalikan matriks berdasarkan masukan row dan col
         double[][] matrix = new double[row][col];
 
         FileReader reader = null;
@@ -29,6 +30,7 @@ public class filemethods extends matrixmethods {
     }
 
     public static int[] banyakRowandCol(String file) {
+        // Menghitung jumlah baris dan kolom dari matriks file
         FileReader reader = null;
         try {
             reader = new FileReader(file);
@@ -60,6 +62,7 @@ public class filemethods extends matrixmethods {
     }
 
     public static boolean writeMatrixkeFile(String directory, double[][] matrix) {
+        // Menuliskan matriks ke dalam file
         try {
             FileWriter writer = new FileWriter(directory);
             for (int i = 0; i < matrix.length; i++) {
@@ -80,6 +83,7 @@ public class filemethods extends matrixmethods {
     }
 
     public static boolean writeSPLkeFile(String directory, String[] SPL) {
+        // Menuliskan solusi SPL ke file. Mengembalikan true jika hasil berhasil dituliskan, false jika gagal.
         try {
             FileWriter writer = new FileWriter(directory);
             for (int i=0; i < SPL.length; i++) {
@@ -97,6 +101,7 @@ public class filemethods extends matrixmethods {
     }
 
     public static boolean writeMatrixDeterminankeFile(String directory, double[][] matrix, double det) {
+        // Menuliskan determinan ke file. Mengembalikan true jika hasil berhasil dituliskan, false jika gagal.
         try {
             FileWriter writer = new FileWriter(directory);
             writer.write("Determinan matriks berikut \n");
@@ -120,6 +125,8 @@ public class filemethods extends matrixmethods {
     }
 
     public static boolean writeMatrixInversekeFile(String directory, double[][] matrix, double[][] inverse, boolean hasInverse) {
+        // Menuliskan matriks balikan ke file. Jika tidak ada, tulis tidak memiliki invers.
+        // Mengembalikan true jika hasil berhasil dituliskan, false jika gagal.
         try {
             FileWriter writer = new FileWriter(directory);
             if (hasInverse) {
@@ -159,6 +166,7 @@ public class filemethods extends matrixmethods {
     }
     
     public static boolean writeRegresikeFile(String directory, double[] hasilregresi, double taksiran) {
+        // Menulis solusi regresi linier berganda beserta taksiran ke file. Mengembalikan true jika hasil berhasil dituliskan, false jika gagal.
         try {
             FileWriter writer = new FileWriter(directory);
             writer.write("Persamaan regresi linear berganda adalah: ");
@@ -185,6 +193,7 @@ public class filemethods extends matrixmethods {
     }
 
     public static boolean writeInterpolasikeFile(String directory, double[] solusiInterpolasi, double nilai, double estimasi) {
+        // Menuliskan persamaan polinom hasil interpolasi beserta taksirannya. Mengembalikan true jika hasil berhasil dituliskan, false jika gagal.
         try {
             FileWriter writer = new FileWriter(directory);
             writer.write("Persamaan polinom\ny = ");

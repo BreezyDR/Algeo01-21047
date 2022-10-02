@@ -7,6 +7,7 @@ public class menu extends matrixmethods {
     static Scanner scanner = new Scanner(System.in);
 
     public static int pilihanMenu(int i, int j) {
+        // Menerima input pilihan berupa angka dari range i sampai j
         int input = 0;
         printlnstr("Ketikkan angka antara " + i + " dan " + j);
         boolean terusinput = true;
@@ -22,6 +23,7 @@ public class menu extends matrixmethods {
     }
 
     public static double[][] inputKeyboard(boolean harusSquare) {
+        // Membuat sebuah matriks dari input keyboard, bergantung pada harusSquare: apakah berupa matriks persegi atau tidak
         double[][] matrix;
         int row = 0;
         int col = 0;
@@ -58,6 +60,7 @@ public class menu extends matrixmethods {
     }
 
     public static String inputFilename() {
+        // Mengembalikan path directory file input
         boolean isValidFile = false;
         String fileName = null;
         while (!isValidFile) {
@@ -76,6 +79,7 @@ public class menu extends matrixmethods {
     }
 
     public static double[][] matrixFile(boolean harusSquare) {
+        // Membuat matriks dari file, bergantung pada harusSquare: apakah berupa matriks persegi atau tidak
         int[] rowandcol = new int[2];
         String file = "";
         double[][] matrix;
@@ -96,6 +100,7 @@ public class menu extends matrixmethods {
     }
 
     public static double[][] inputDanBuatMatrix(boolean harusSquare) {
+        // Pilihan apakah ingin membuat matriks dari keyboard atau file.
         double[][] matrix;
         printlnstr("Menu Input Data Matriks");
         printlnstr("1. Input Keyboard");

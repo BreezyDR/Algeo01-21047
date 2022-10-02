@@ -8,6 +8,7 @@ public class main extends menu {
 
         sedangrunning = true;
         while (sedangrunning) {
+            // Program sudah running
             selesai = false;
             printlnstr("MENU UTAMA");
             printlnstr("1. Sistem Persamaan Linear");
@@ -49,22 +50,22 @@ public class main extends menu {
                     }
                     printlnstr("Matriks SPL yang diperoleh:");
                     switch (pilihan) {
-                        case 1:
+                        case 1: // Eliminasi Gauss
                             GaussMethod.gauss(matrix);
                             matrixSPL = copyMatrix(matrix);
                             displayMatrix(matrixSPL);
                             outputSPL = SPL.SPLGauss(matrixSPL, true);
                             break;
-                        case 2:
+                        case 2: // Eliminasi Gauss-Jordan
                             GaussJordanMethod.gaussJordan(matrix);
                             matrixSPL = copyMatrix(matrix);
                             displayMatrix(matrixSPL);
                             outputSPL = SPL.SPLGauss(matrixSPL, false);
                             break;
-                        case 3:
+                        case 3: // Matriks Balikan
                             outputSPL = SPL.SPLInvers(matrix);
                             break;
-                        case 4:
+                        case 4: // Kaidah Cramer
                             outputSPL = cramer.kaidahCramer(matrix);
                             break;
                     }
@@ -89,9 +90,11 @@ public class main extends menu {
                     printlnstr("1. Metode Row Reduction");
                     printlnstr("2. Metode ekspansi kofaktor");
                     pilihan = pilihanMenu(1, 2);
+                    // Operasi determinan
                     if (pilihan == 1) {
                         determinan = DeterminantRowReduction.detRowReduction(matrix);
                     } else {
+                        // pilihan == 2
                         determinan = determinan(matrix);
                     }
                     printlnstr("Determinan matriks");
@@ -118,6 +121,7 @@ public class main extends menu {
                     printlnstr("2. Metode matriks kofaktor");
                     pilihan = pilihanMenu(1, 2);
                     if (isZero(determinan(matrix))) {
+                        // Determinan matriks = 0
                         printlnstr("Matriks");
                         displayMatrix(matrix);
                         printlnstr("\nTidak memiliki invers karena determinan = 0");
@@ -133,10 +137,13 @@ public class main extends menu {
                             }
                         }
                     } else {
+                        // Determinan matriks != 0
                         double[][] matrixInvers = new double[matrix.length][matrix[0].length];
+                        // Operasi matriks balikan
                         if (pilihan == 1) {
                             matrixInvers = Inverse.inverseGaussJordan(matrix);
                         } else {
+                            // pilihan == 2
                             matrixInvers = Inverse.inverseCofactor(matrix);
                         }
                         printlnstr("Invers matriks");
@@ -159,7 +166,9 @@ public class main extends menu {
                 case 4: // Interpolasi polinom
                     harusSquare = false;
                     matrix = inputDanBuatMatrix(harusSquare);
+                    // Operasi interpolasi polinom
                     double[] solusiInterpolasi = InterpolasiPolinom.polynomialInterpolation(matrix);
+                    // Penaksiran nilai
                     print("Masukkan nilai yang akan ditaksir: ");
                     double nilai = scanner.nextDouble();
                     double estimasi = InterpolasiPolinom.estimateFunction(solusiInterpolasi, nilai);
@@ -185,6 +194,7 @@ public class main extends menu {
                     printlnstr("Pilih: 1. Masukan dari keyboard; 2. Masukan dari file");
                     pilihan = pilihanMenu(1, 2);
                     if (pilihan == 1) {
+                        // Masukan dari keyboard
                         print("Masukkan banyak variabel x: ");
                         varamount = scanner.nextInt();
                         print("Masukkan banyak persamaan: ");
@@ -199,6 +209,7 @@ public class main extends menu {
                             y[i] = scanner.nextDouble();
                         }
                     } else {
+                        // Masukan dari file
                         double[][] dariFile = matrixFile(false);
                         matrix = new double[dariFile.length][dariFile[0].length - 1];
                         for (int i=0; i < matrix.length; i++) {
@@ -208,6 +219,7 @@ public class main extends menu {
                         }
                     }
 
+                    // Operasi regresi
                     double[] regresiresult = regression.regression(matrix);
 
                     printlnstr("\nPersamaan regresi linear berganda adalah:");
@@ -219,6 +231,8 @@ public class main extends menu {
                             printf(" %f x%d", regresiresult[i], i);
                         }
                     }
+
+                    // Taksir nilai fungsi
                     printf("\nUntuk menaksir nilai fungsi, masukkan %d peubah yang akan ditaksir nilai fungsinya.", regresiresult.length - 1);
                     double[] arraytaksir = new double[regresiresult.length];
                     for (int i=0; i < regresiresult.length - 1; i++) {
@@ -230,6 +244,7 @@ public class main extends menu {
                     }
                     printf("\nNilai taksiran adalah %f\n", hasiltaksir);
 
+                    // Tulis ke file
                     printlnstr("Apakah Anda ingin menulis hasil ke dalam file?");
                     printlnstr("1. Ya");
                     printlnstr("2. Tidak");
@@ -265,6 +280,7 @@ public class main extends menu {
                     break;       
                 default: // Keluar
                 printlnstr("Terima kasih sudah menggunakan kalkulator kami!\nSemoga kita berjumpa lagi.");
+                // Program berhenti running
                 sedangrunning = false;
                     break;
             }

@@ -31,6 +31,7 @@ public class matrixmethods {
     }
 
     public static void displayMatrix(double[][] matrix) {
+        // Menampilkan matriks
         int i, j;
         int rows = matrix.length;
         for (i = 0; i < rows; i++) {
@@ -42,10 +43,12 @@ public class matrixmethods {
     }
 
     public static boolean isSquare(double[][] matrix) {
+        // Mengembalikan true jika matrix berupa persegi
         return (matrix.length == matrix[0].length);
     }
 
     public static double[][] transpose(double[][] matrix) {
+        // Mengembalikan transpose dari matrix
         int i, j;
         int rows = matrix.length;
         int cols = matrix[0].length;
@@ -59,6 +62,7 @@ public class matrixmethods {
     }
 
     public static double[][] multiplyByConst(double[][] matrix, double x) {
+        // Mengembalikan matrix yang semua elemennya sudah dikalikan suatu konstanta
         int i, j;
         int rows = matrix.length;
         int cols = matrix[0].length;
@@ -72,6 +76,7 @@ public class matrixmethods {
     }
 
     public static double[][] multiplyMatrix(double[][] matrix1, double[][] matrix2) {
+        // Mengembalikan matriks hasil perkalian matrix1 dan matrix2
         double[][] mresult = new double[matrix1.length][matrix2[0].length];
         int i, j, k, tempadd;
         for (i = 0; i < mresult.length; i++) {
@@ -87,11 +92,13 @@ public class matrixmethods {
     }
 
     public static boolean isZero(double x) {
+        // Mengembalikan true jika x bernilai nol dengan ketelitian 10 angka di belakang koma
         double ketelitian = 1.0e-10;
         return ((x < ketelitian) && (x > -ketelitian));        
     }
 
     public static boolean isRowElmtZero(double[] row) {
+        // Mengembalikan true jika sebuah row (dalam hal ini sebuah array of double) semuanya bernilai nol
         int i;
         boolean state = true;
         for (i = 0; i < row.length; i++) {
@@ -103,6 +110,7 @@ public class matrixmethods {
     }
 
     public static boolean isColElmtZero(double[][] matrix, int col) {
+        // Mengembalikan true jika sebuah col dalam matrix semuanya bernilai nol
         boolean state = true;
         for (int i = 0; i < matrix.length; i++) {
             if (!isZero(matrix[i][col])) {
@@ -113,6 +121,7 @@ public class matrixmethods {
     }
 
     public static boolean doesMatrixHaveNoSolution(double[][] matrix) {
+        // Mengembalikan true jika matriks tidak memiliki solusi
         boolean state = true;
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[0].length - 1; j++) {
@@ -131,6 +140,7 @@ public class matrixmethods {
     }
 
     public static double[][] cutAugmentedToSquare(double[][] matrix) {
+        // Mengembalikan matriks yang sudah dipotong kolomnya sebanyak 1 dari bentuk augmentednya
         int i, j;
         double[][] mresult = new double[matrix.length][matrix.length];
         for (i = 0; i < matrix.length; i++) {
@@ -142,6 +152,7 @@ public class matrixmethods {
     }
 
     public static double determinan(double[][] matrix) {
+        // Menentukan determinan matriks dengan metode kofaktor
         int i, j, k;
         double[][] kofaktor = new double[matrix.length - 1][matrix[0].length - 1];
         double det = 0;
@@ -167,6 +178,7 @@ public class matrixmethods {
     }
 
     public static double[][] cutRowAllZero(double[][] matrix) {
+        // Mengembalikan matriks yang sudah dipotong barisnya yang semua elemennya nol
         int rowallzero = 0;
         for (int i = 0; i < matrix.length; i++) {
             if (isRowElmtZero(matrix[i])) {
@@ -265,6 +277,7 @@ public class matrixmethods {
     }
 
     public static double[][] increaseMatrix(double[][] matrix1, double[][] matrix2) {
+        // Memperluas matriks dengan menggabungkan matrix1 dan matrix2
         int rows1 = matrix1.length;
         int cols1 = matrix1[0].length;
         int cols2 = matrix2[0].length;
@@ -283,6 +296,7 @@ public class matrixmethods {
     }
 
     public static double[][] copyMatrix(double[][] MIn) {
+        // Mengembalikan matriks yang merupakan duplikat MIn
         int i, j;
         double[][] MOut = new double[MIn.length][MIn[0].length];
         for (i = 0; i < MIn.length; i++) {

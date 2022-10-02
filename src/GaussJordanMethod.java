@@ -1,5 +1,6 @@
 public class GaussJordanMethod extends matrixmethods {
     public static void gaussJordan(double[][] matrix) {
+        // Melakukan operasi OBE pada matrix sehingga diperoleh matriks baris eselon tereduksi
         int rows = matrix.length;
         int i, j;
         int k;

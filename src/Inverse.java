@@ -1,9 +1,11 @@
 public class Inverse extends EkspansiKofaktor {
     protected static double getKofaktor (double[][] matrix, int i, int j) {
+        // Mendapatkan kofaktor dari matrix dengan format Cij.
         return Math.pow((-1),(i+j)) * detKofaktor(makeNewMatrix(matrix,i,j));
     }
 
     public static double[][] inverseCofactor (double[][] matrix) {
+        // Mengembalikan inverse matriks menggunakan metode ekspansi kofaktor
         int rows = matrix.length;
         int cols = matrix[0].length;
         double det = detKofaktor(matrix);
@@ -30,8 +32,10 @@ public class Inverse extends EkspansiKofaktor {
     }
 
     public static double[][] inverseGaussJordan(double[][] matrix) {
+        // Mengembalikan matriks balikan dengan metode Gauss Jordan
         int row = matrix.length;
         int col = matrix[0].length;
+        // Menginisialisasi matriks dengan format [matrix | I]
         double[][] temp = new double[row][2*col];
 
         for (int i=0; i < temp.length; i++) {

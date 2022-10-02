@@ -1,5 +1,6 @@
 public class GaussMethod extends matrixmethods {
     public static void gauss(double[][] matrix) {
+        // Melakukan operasi OBE pada matrix sehingga diperoleh matriks baris eselon
         int rows = matrix.length;
         int i, j;
         int k = 0;

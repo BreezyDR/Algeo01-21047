@@ -1,5 +1,7 @@
 public class SPL extends matrixmethods {
     public static int leadingone(double[][] matrix, int col) {
+        // Mengembalikan indeks baris jika terdapat leading one di suatu kolom.
+        // Jika tidak ada, dikembalikan -1.
         boolean terusScan = true;
         int index = -1;
         for (int i = 0; i < matrix.length; i++) {
@@ -19,6 +21,7 @@ public class SPL extends matrixmethods {
     }
 
     public static char variableMachine(int index, int[] arrayIndex, int count) {
+        // Mengembalikan suatu variabel dimulai dari 'a', 'b', dst.
         char variable = 'a';
         for (int i=0; i < count; i++) {
             if (arrayIndex[i] == index) {
@@ -30,6 +33,7 @@ public class SPL extends matrixmethods {
     }
 
     public static String[] parametersolving(double[][] matrix, boolean dariGauss) {
+        // Mengembalikan array of string yang mengandung SPL dalam bentuk parametrik
         int row = matrix.length;
         int col = matrix[0].length;
         String[] hasil = new String[col - 1];
@@ -67,10 +71,14 @@ public class SPL extends matrixmethods {
     }
 
     public static String[] SPLGauss(double[][] matrix, boolean apaGaussJordan) {
+        // Mengembalikan array of string yang mengandung SPL
+        // Jika apaGaussJordan = true, mengembalikan SPL dengan metode Gauss Jordan
+        // Jika apaGaussJordan = false, mengmbalikan SPL dengan metode Gauss
         int row = matrix.length;
         int col = matrix[0].length;
 
         if (doesMatrixHaveNoSolution(matrix)) {
+            // Matriks tidak ada solusi
             String[] hasil = { "Tidak ada solusi" };
             return hasil;
         } else {
@@ -104,6 +112,7 @@ public class SPL extends matrixmethods {
             } else if (row < (col-1)) {
                 return parametersolving(matrixEff, true);
             } else {
+                // row > col - 1
                 String[] hasil = { "Tidak ada solusi "};
                 return hasil;
             }
@@ -111,6 +120,7 @@ public class SPL extends matrixmethods {
     }
 
     public static String[] SPLInvers(double[][] matrix) {
+        // Mengembalikan array of string berisi SPL dari invers
         int row = matrix.length;
         int col = matrix[0].length;
         double[][] matrix2 = new double[row][1];
@@ -128,6 +138,7 @@ public class SPL extends matrixmethods {
     }
 
     public static void displaySPL(String[] SPL) {
+        // Memperlihatkan hasil SPL dari array of string SPL
         for (int i = 0; i < SPL.length; i++) {
             printlnstr(SPL[i]);
         }
