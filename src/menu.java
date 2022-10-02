@@ -61,20 +61,18 @@ public class menu extends matrixmethods {
 
     public static String inputFilename() {
         // Mengembalikan path directory file input
-        boolean isValidFile = false;
-        String fileName = null;
-        while (!isValidFile) {
+        String fileName;
+        FileReader reader = null;
+        printlnstr("Masukkan nama file");
+        print("--> ");
+        fileName = scanner.next();
             try {
-                printlnstr("Masukkan file path dokumen yang akan dibaca:");
-                fileName = scanner.nextLine();
-                Scanner file = new Scanner(new File(fileName));
-                isValidFile = true;
+                reader = new FileReader("../test/" + fileName);
             } catch (FileNotFoundException e) {
                 // TODO: handle exception
                 printlnstr("File tidak dapat ditemukan! Silakan coba lagi.");
-                isValidFile = false;
+                fileName = inputFilename();
             }
-        }
         return fileName;
     }
 
