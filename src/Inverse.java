@@ -3,7 +3,7 @@ public class Inverse extends EkspansiKofaktor {
         return Math.pow((-1),(i+j)) * detKofaktor(makeNewMatrix(matrix,i,j));
     }
 
-    public static double[][] inverse (double[][] matrix) {
+    public static double[][] inverseCofactor (double[][] matrix) {
         int rows = matrix.length;
         int cols = matrix[0].length;
         double det = detKofaktor(matrix);

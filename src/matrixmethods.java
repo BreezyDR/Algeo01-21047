@@ -281,4 +281,15 @@ public class matrixmethods {
         }
         return hasilmatrix;
     }
+
+    public static double[][] copyMatrix(double[][] MIn) {
+        int i, j;
+        double[][] MOut = new double[MIn.length][MIn[0].length];
+        for (i = 0; i < MIn.length; i++) {
+            for (j = 0; j < MIn[0].length; j++) {
+                MOut[i][j] = MIn[i][j];
+            }
+        }
+        return MOut;
+    }
 }

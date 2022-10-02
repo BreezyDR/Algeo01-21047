@@ -79,6 +79,23 @@ public class filemethods extends matrixmethods {
         }
     }
 
+    public static boolean writeSPLkeFile(String directory, String[] SPL) {
+        try {
+            FileWriter writer = new FileWriter(directory);
+            for (int i=0; i < SPL.length; i++) {
+                writer.write(SPL[i] + "\n");
+            }
+            writer.write("\n");
+            writer.close();
+            printlnstr("Hasil sudah dituliskan kepada file.");
+            return true;
+        } catch (Exception e) {
+            // TODO: handle exception
+            printlnstr("Something went wrong. Try again");
+            return false;
+        }
+    }
+
     public static boolean writeMatrixDeterminankeFile(String directory, double[][] matrix, double det) {
         try {
             FileWriter writer = new FileWriter(directory);
