@@ -128,7 +128,8 @@ public class SPL extends matrixmethods {
         for (int i=0; i<row; i++) {
             matrix2[i][0] = matrix[i][col-1];
         }
-        double[][] hasilSPL = multiplyMatrix(Inverse.inverseCofactor(cutAugmentedToSquare(matrix)), matrix2);
+        double[][] cutmatrixdariaugmented = cutAugmentedToSquare(matrix);
+        double[][] hasilSPL = multiplyMatrix(Inverse.inverseCofactor(cutmatrixdariaugmented), matrix2);
 
         hasil[0] = "Solusi SPL menggunakan matriks invers adalah:";
         for (int i=0; i < row; i++) {

@@ -78,7 +78,8 @@ public class matrixmethods {
     public static double[][] multiplyMatrix(double[][] matrix1, double[][] matrix2) {
         // Mengembalikan matriks hasil perkalian matrix1 dan matrix2
         double[][] mresult = new double[matrix1.length][matrix2[0].length];
-        int i, j, k, tempadd;
+        int i, j, k;
+        double tempadd;
         for (i = 0; i < mresult.length; i++) {
             for (j = 0; j < mresult[0].length; j++) {
                 tempadd = 0;
