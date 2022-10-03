@@ -109,6 +109,7 @@ public class menu extends matrixmethods {
     }
 
     public static double[] taksiranBicubic(String file) {
+        // Mengambil nilai a dan b untuk f(a,b) pada bicubic
         double[] arrayEst = new double[2];
         try {
             String wantedLine = Files.readAllLines(Paths.get(file)).get(4);
