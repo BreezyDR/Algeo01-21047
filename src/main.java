@@ -26,7 +26,7 @@ public class main extends menu {
                     String[] outputSPL = new String[matrix[0].length];
                     double det1 = 0;
                     double[][] matrixSPL;
-                    double[][] matrixdariaugmented = copyMatrix(cutAugmentedToSquare(matrix));
+                    double[][] matrixdariaugmented = cutAugmentedToSquare(matrix);
                     if (matrix.length == matrix[0].length - 1) {
                         det1 = determinan(matrixdariaugmented);
                     }
