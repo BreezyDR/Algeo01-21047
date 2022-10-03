@@ -62,6 +62,7 @@ public class Inverse extends EkspansiKofaktor {
         for (int i=0; i < hasilInverse.length; i++) {
             for (int j=0; j < hasilInverse[i].length; j++) {
                 hasilInverse[i][j] = matrixGaussJordan[i][j+col];
+                hasilInverse[i][j] = Math.round(hasilInverse[i][j] * 100) / 100;
             }
         }
         return hasilInverse;
