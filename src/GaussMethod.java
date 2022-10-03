@@ -7,14 +7,18 @@ public class GaussMethod extends matrixmethods {
         double x, y;
         double n;
 
-        // Menukar baris pada matriks
-        for (j = 0; j < rows; j++) {
-            for (i = k+1; i < rows; i++) {
-                if ((matrix[k][j] == 0) && (matrix[i][j]) != 0) {
-                    switchRow(matrix,k,i);
+        // Menukar baris pada matriks sebelum OBE
+        while (k < rows) {
+            if (searchNonZero(matrix,k) != 0) {
+                for (i = k+1; i < rows; i++) {
+                    for (j = 0; j <= searchIndex(matrix,k,searchNonZero(matrix,k)); j++) {
+                        if ((matrix[k][j] < matrix[i][j]) && (matrix[k][j] == 0)) {
+                            switchRow(matrix, i, k);
+                        }
+                    }
                 }
             }
-            k++;
+            k += 1;
         }
         k = 0;
 
@@ -28,6 +32,21 @@ public class GaussMethod extends matrixmethods {
                     y = matrix[k][j];
                     n = x / y;
                     min2barismatrix(matrix, i, k, n);
+                }
+            }
+            k += 1;
+        }
+        k = 0;
+
+        // Menukar baris pada matriks setelah OBE
+        while (k < rows) {
+            if (searchNonZero(matrix,k) != 0) {
+                for (i = k+1; i < rows; i++) {
+                    for (j = 0; j <= searchIndex(matrix,k,searchNonZero(matrix,k)); j++) {
+                        if ((matrix[k][j] < matrix[i][j]) && (matrix[k][j] == 0)) {
+                            switchRow(matrix, i, k);
+                        }
+                    }
                 }
             }
             k += 1;
