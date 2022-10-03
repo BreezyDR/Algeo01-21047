@@ -1,0 +1,1 @@
+Nilai taksiran dari f(0.25, 0.75) adalah 105.5147705078125
