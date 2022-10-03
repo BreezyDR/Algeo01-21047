@@ -314,7 +314,7 @@ public class matrixmethods {
 
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
-                if (matrix[i][j] < 1e-9) {
+                if (matrix[i][j] < 1e-9 && matrix[i][j] > -1e-9) {
                     matrix[i][j] = Math.abs(matrix[i][j]);
                 }
             }
