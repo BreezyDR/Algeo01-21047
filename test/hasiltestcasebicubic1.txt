@@ -1,0 +1,1 @@
+Nilai taksiran dari f(0.0, 0.0) adalah 161.0

@@ -205,7 +205,43 @@ public class main extends menu {
                     }
                     break;    
                 case 5: // Interpolasi Bicubic
+                    harusSquare = true;
+                    String file = "";
+                    file = "../test/" + inputFilename();
+                    matrix = matrixBicubicFile(file);
+                    displayMatrix(matrix);
+                    double[] hasilEstimasi = taksiranBicubic(file);
+                    double hasilBicubic = BicubicInterpolation.bicubicInterpolation(matrix, hasilEstimasi[0], hasilEstimasi[1]);
+                    printf("Nilai taksiran f(%f, %f) adalah ", hasilEstimasi[0], hasilEstimasi[1]);
+                    printlndou(hasilBicubic);
+                    printlnstr("Apakah Anda ingin menulis hasil ke dalam file?");
+                    printlnstr("1. Ya");
+                    printlnstr("2. Tidak");
+                    pilihan = pilihanMenu(1, 2);
+                    if (pilihan == 1) {
+                        while (!selesai) {
+                            try {
+                                printlnstr("Masukkan directory file yang ingin dituliskan hasilnya:");
+                                String directory = scanner.next();
+                                directory = "../test/" + directory;
+                                FileWriter writer = new FileWriter(directory);
+                                writer.write("Nilai taksiran dari f(");
+                                writer.write(Double.toString(hasilEstimasi[0]));
+                                writer.write(", ");
+                                writer.write(Double.toString(hasilEstimasi[1]));
+                                writer.write(") adalah ");
+                                writer.write(Double.toString(hasilBicubic));
+                                writer.write("\n");
+                                writer.close();
+                                printlnstr("Hasil sudah dituliskan kepada file.");
+                                selesai = true;
+                            } catch (Exception e) {
+                                // TODO: handle exception
+                                printlnstr("Something went wrong, try again.");
 
+                            }
+                        }
+                    }
                     break;    
                 case 6: // Regresi linier berganda
                     int varamount, equationamount;

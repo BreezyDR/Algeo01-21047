@@ -1,5 +1,7 @@
 import java.util.*;
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 
 public class menu extends matrixmethods {
@@ -95,6 +97,30 @@ public class menu extends matrixmethods {
         matrix = filemethods.readMatrixFile(rowandcol[0], rowandcol[1], file);
 
         return matrix;
+    }
+
+    public static double[][] matrixBicubicFile(String file) {
+        // Membuat matriks bicubic 4 x 4 dari file.
+        double[][] matrix;
+
+        matrix = filemethods.readMatrixFile(4, 4, file);
+
+        return matrix;
+    }
+
+    public static double[] taksiranBicubic(String file) {
+        double[] arrayEst = new double[2];
+        try {
+            String wantedLine = Files.readAllLines(Paths.get(file)).get(4);
+            String[] splitLine = wantedLine.split(" ");
+            for (int i = 0; i < 2; i++) {
+                arrayEst[i] = Double.parseDouble(splitLine[i]);
+            }
+        } catch (Exception e) {
+            // TODO: handle exception
+            printlnstr("Something went wrong.");
+        }
+        return arrayEst;
     }
 
     public static double[][] inputDanBuatMatrix(boolean harusSquare) {
