@@ -156,32 +156,6 @@ public class matrixmethods {
         return mresult;
     }
 
-    public static double determinan(double[][] matrix) {
-        // Menentukan determinan matriks dengan metode kofaktor
-        int i, j, k;
-        double[][] kofaktor = new double[matrix.length - 1][matrix[0].length - 1];
-        double det = 0;
-        int posneg = 1;
-        if (matrix.length == 1) {
-            det = matrix[0][0];
-        } else {
-            for (i = 0; i < matrix.length; i++) {
-                for (j = 1; j < matrix.length; j++) {
-                    for (k = 0; k < matrix[0].length; k++) {
-                        if (k < i) {
-                            kofaktor[j-1][k] = matrix[j][k];
-                        } else if (i < k) {
-                            kofaktor[j-1][k-1] = matrix[j][k];
-                        }
-                    }
-                }
-                det += posneg * matrix[0][i] * determinan(kofaktor);
-                posneg = -posneg;
-            }
-        }
-        return det;
-    }
-
     public static double[][] cutRowAllZero(double[][] matrix) {
         // Mengembalikan matriks yang sudah dipotong barisnya yang semua elemennya nol
         int rowallzero = 0;

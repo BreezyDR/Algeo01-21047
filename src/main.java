@@ -28,7 +28,7 @@ public class main extends menu {
                     double[][] matrixSPL;
                     double[][] matrixdariaugmented = cutAugmentedToSquare(matrix);
                     if (matrix.length == matrix[0].length - 1) {
-                        det1 = determinan(matrixdariaugmented);
+                        det1 = EkspansiKofaktor.detKofaktor(matrixdariaugmented);
                     }
                     boolean terusinput = true;
                     while (terusinput) {
@@ -67,7 +67,7 @@ public class main extends menu {
                             printlnstr("Solusi SPL adalah:");
                             break;
                         case 3: // Matriks Balikan
-                            outputSPL = SPL.SPLInvers(matrixdariaugmented);
+                            outputSPL = SPL.SPLInvers(matrix);
                             break;
                         case 4: // Kaidah Cramer
                             outputSPL = cramer.kaidahCramer(matrix);
@@ -98,7 +98,7 @@ public class main extends menu {
                         determinan = DeterminantRowReduction.detRowReduction(matrix);
                     } else {
                         // pilihan == 2
-                        determinan = determinan(matrix);
+                        determinan = EkspansiKofaktor.detKofaktor(matrix);
                     }
                     printlnstr("Determinan matriks");
                     displayMatrix(matrix);
@@ -123,7 +123,7 @@ public class main extends menu {
                     printlnstr("1. Metode eliminasi Gauss-Jordan");
                     printlnstr("2. Metode matriks kofaktor");
                     pilihan = pilihanMenu(1, 2);
-                    if (isZero(determinan(matrix))) {
+                    if (isZero(EkspansiKofaktor.detKofaktor(matrix))) {
                         // Determinan matriks = 0
                         printlnstr("Matriks");
                         displayMatrix(matrix);

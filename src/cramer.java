@@ -29,7 +29,7 @@ public class cramer extends matrixmethods {
                 }
             }
             // Menghitung nilai Xn menggunakan rumus determinan(Abaru) / determinan(A)
-            double x = matrixmethods.determinan(Abaru) / matrixmethods.determinan(A);
+            double x = EkspansiKofaktor.detKofaktor(Abaru) / EkspansiKofaktor.detKofaktor(A);
             message[koefisien] = "Nilai X" + (koefisien + 1) + " adalah: " + x;
         }
         return message;
