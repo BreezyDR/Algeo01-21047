@@ -122,21 +122,26 @@ public class matrixmethods {
 
     public static boolean doesMatrixHaveNoSolution(double[][] matrix) {
         // Mengembalikan true jika matriks tidak memiliki solusi
-        boolean state = true;
         for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[0].length - 1; j++) {
-                if (!isZero(matrix[i][j])) {
-                    state = false;
-                }
-            }
-            if (isZero(matrix[i][matrix[0].length - 1])) {
-                state = false;
-            } else {
-                state = true;
-                break;
+            if (checkRowZeroUntilLast(matrix[i])) {
+                return true;
             }
         }
-        return state;
+        return false;
+    }
+
+    public static boolean checkRowZeroUntilLast(double[] row) {
+        // Mengembalikan true jika sebuah row memiliki semua elemennya 0 kecuali elemen terakhir
+        for (int i = 0; i < row.length - 1; i++) {
+            if (!isZero(row[i])) {
+                return false;
+            }
+        }
+        if (!isZero(row[row.length-1])) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public static double[][] cutAugmentedToSquare(double[][] matrix) {
@@ -170,9 +175,9 @@ public class matrixmethods {
                         }
                     }
                 }
+                det += posneg * matrix[0][i] * determinan(kofaktor);
+                posneg = -posneg;
             }
-            det += posneg * matrix[0][i] * determinan(kofaktor);
-            posneg = -posneg;
         }
         return det;
     }

@@ -27,7 +27,8 @@ public class main extends menu {
                     double det1 = 0;
                     double[][] matrixSPL;
                     if (matrix.length == matrix[0].length - 1) {
-                        det1 = determinan(matrix);
+                        double[][] matrixdariaugmented = copyMatrix(cutAugmentedToSquare(matrix));
+                        det1 = determinan(matrixdariaugmented);
                     }
                     boolean terusinput = true;
                     while (terusinput) {
@@ -48,19 +49,22 @@ public class main extends menu {
                             }
                         }
                     }
-                    printlnstr("Matriks SPL yang diperoleh:");
                     switch (pilihan) {
                         case 1: // Eliminasi Gauss
                             GaussMethod.gauss(matrix);
                             matrixSPL = copyMatrix(matrix);
+                            printlnstr("Matriks SPL yang diperoleh:");
                             displayMatrix(matrixSPL);
-                            outputSPL = SPL.SPLGauss(matrixSPL, true);
+                            outputSPL = SPL.SPLGauss(matrixSPL, false);
+                            printlnstr("Solusi SPL adalah:");
                             break;
                         case 2: // Eliminasi Gauss-Jordan
                             GaussJordanMethod.gaussJordan(matrix);
                             matrixSPL = copyMatrix(matrix);
+                            printlnstr("Matriks SPL yang diperoleh:");
                             displayMatrix(matrixSPL);
-                            outputSPL = SPL.SPLGauss(matrixSPL, false);
+                            outputSPL = SPL.SPLGauss(matrixSPL, true);
+                            printlnstr("Solusi SPL adalah:");
                             break;
                         case 3: // Matriks Balikan
                             outputSPL = SPL.SPLInvers(matrix);
@@ -69,7 +73,6 @@ public class main extends menu {
                             outputSPL = cramer.kaidahCramer(matrix);
                             break;
                     }
-                    printlnstr("Solusi SPL adalah:");
                     SPL.displaySPL(outputSPL);
                     printlnstr("Apakah Anda ingin menulis hasil ke dalam file?");
                     printlnstr("1. Ya");
