@@ -171,6 +171,21 @@ public class main extends menu {
                     matrix = inputDanBuatMatrix(harusSquare);
                     // Operasi interpolasi polinom
                     double[] solusiInterpolasi = InterpolasiPolinom.polynomialInterpolation(matrix);
+                    boolean pertama = true;
+                    print("Persamaan polinomial dati titik-titik yang diinput:\ny =");
+                    for (int i = solusiInterpolasi.length - 1; i >= 0; i--) {
+                        if (!isZero(solusiInterpolasi[i])) {
+                            if (pertama)
+                                pertama = false;
+                            else if (solusiInterpolasi[i] > 0 && !pertama)
+                                print(" +");
+                            printf(" %f", solusiInterpolasi[i]);
+                            if (i != 0) {
+                                printf(" x^%d", i);
+                            }
+                        }
+                    }
+                    println();
                     // Penaksiran nilai
                     print("Masukkan nilai yang akan ditaksir: ");
                     double nilai = scanner.nextDouble();
@@ -214,7 +229,7 @@ public class main extends menu {
                     } else {
                         // Masukan dari file
                         double[][] dariFile = matrixFile(false);
-                        matrix = new double[dariFile.length][dariFile[0].length - 1];
+                        matrix = new double[dariFile.length][dariFile[0].length];
                         for (int i=0; i < matrix.length; i++) {
                             for (int j=0; j < matrix[i].length; j++) {
                                 matrix[i][j] = dariFile[i][j];
@@ -237,6 +252,7 @@ public class main extends menu {
 
                     // Taksir nilai fungsi
                     printf("\nUntuk menaksir nilai fungsi, masukkan %d peubah yang akan ditaksir nilai fungsinya.", regresiresult.length - 1);
+                    println();
                     double[] arraytaksir = new double[regresiresult.length];
                     for (int i=0; i < regresiresult.length - 1; i++) {
                         arraytaksir[i] = scanner.nextDouble();
@@ -253,11 +269,13 @@ public class main extends menu {
                     printlnstr("2. Tidak");
                     pilihan = pilihanMenu(1, 2);
                     if (pilihan == 1) {
+                        selesai = false;
                         while (!selesai) {
                             try {
                                 printlnstr("Masukkan directory file yang ingin dituliskan hasilnya:");
                                 String directory = scanner.next();
-                                FileWriter writer = new FileWriter("../test/" + directory);
+                                directory = "../test/" + directory;
+                                FileWriter writer = new FileWriter(directory);
                                 writer.write("Persamaan regresi linear berganda adalah\ny= ");
                                 writer.write(Double.toString(regresiresult[0]));
                                 for (int i=1; i < regresiresult.length; i++) {
