@@ -145,6 +145,10 @@ public class main extends menu {
                         // Operasi matriks balikan
                         if (pilihan == 1) {
                             matrixInvers = Inverse.inverseGaussJordan(matrix);
+                            for (int i = 0; i < matrixInvers.length; i++) {
+                                for (int j = 0; j < matrixInvers[0].length; j++) {
+                                    matrixInvers[i][j] = Math.round(matrixInvers[i][j] * 100) / 100;                                }
+                            }
                         } else {
                             // pilihan == 2
                             matrixInvers = Inverse.inverseCofactor(matrix);
@@ -209,7 +213,6 @@ public class main extends menu {
                     String file = "";
                     file = "../test/" + inputFilename();
                     matrix = matrixBicubicFile(file);
-                    displayMatrix(matrix);
                     double[] hasilEstimasi = taksiranBicubic(file);
                     double hasilBicubic = BicubicInterpolation.bicubicInterpolation(matrix, hasilEstimasi[0], hasilEstimasi[1]);
                     printf("Nilai taksiran f(%f, %f) adalah ", hasilEstimasi[0], hasilEstimasi[1]);
