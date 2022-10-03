@@ -306,4 +306,18 @@ public class matrixmethods {
         }
         return MOut;
     }
+
+    public static void epsilonHandler (double[][] matrix) {
+        /* Mengahandle angka kecil dan -0 */
+        int rows = matrix.length;
+        int cols = matrix[0].length;
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                if (matrix[i][j] < 1e-9) {
+                    matrix[i][j] = Math.abs(matrix[i][j]);
+                }
+            }
+        }
+    }
 }

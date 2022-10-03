@@ -32,5 +32,8 @@ public class GaussMethod extends matrixmethods {
             }
             k += 1;
         }
+
+        // Menghandle angka yang aneh seperti -0
+        matrixmethods.epsilonHandler(matrix);
     }
 }

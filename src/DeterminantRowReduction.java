@@ -33,6 +33,8 @@ public class DeterminantRowReduction extends matrixmethods {
             }
             k += 1;
         }
+        // Menghandle angka yang aneh seperti -0
+        matrixmethods.epsilonHandler(matrix);
 
         // Mengalikan diagonal matriks untuk mencari determinan
         for (i = 0; i < rows; i++) {

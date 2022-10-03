@@ -28,6 +28,10 @@ public class Inverse extends EkspansiKofaktor {
             matrixInverse = transpose(matrixInverse);
         }
         matrixInverse = multiplyByConst(matrixInverse,1/det);
+
+        // Menghandle angka yang aneh seperti -0
+        matrixmethods.epsilonHandler(matrixInverse);
+
         return matrixInverse;
     }
 

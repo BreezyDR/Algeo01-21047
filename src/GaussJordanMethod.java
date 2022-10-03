@@ -22,5 +22,8 @@ public class GaussJordanMethod extends matrixmethods {
                 }
             }
         }
+
+        // Menghandle angka yang aneh seperti -0
+        matrixmethods.epsilonHandler(matrix);
     }
 }
