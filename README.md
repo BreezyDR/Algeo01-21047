@@ -14,7 +14,7 @@ Terdapat beberapa fitur yang dapat digunakan pada project ini, antara lain:
 1. Menyelesaikan SPL menggunakan metode eliminasi Gauss, eliminasi Gauss-Jordan, matriks balikan, dan kaidah Cramer.
 2. Mencari determinan dari sebuah matriks dengan melakukan ekspansi kofaktor dan reduksi baris.
 3. Mencari invers matriks
-4. Menaksir nilai dari suatu interpolasi polinom dan regresi linear
+4. Menaksir nilai dari suatu interpolasi polinom, interpolasi bicubic dan regresi linear
 
 ## How to Use
 
